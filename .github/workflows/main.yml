@@ -1,0 +1,27 @@
+name: Meu Fluxo de Trabalho
+
+on:
+  push:
+    branches:
+      - main
+  schedule:
+    - cron: '0 * * * *' # Executa a cada hora
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Verificar código
+        uses: actions/checkout@v2
+
+      - name: Executar script personalizado
+        run: |
+          echo "Olá, mundo! Este é o meu script personalizado."
+
+      - name: Usar uma action pré-existente
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+
+    
